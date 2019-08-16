@@ -8,9 +8,7 @@ def password():
         '`' + string.ascii_letters+string.digits
     temp, x = [], ''
     for i in range(16):
-        temp.append(random.randint(0, len(CharList)-1))
-    for num in temp:
-        x += CharList[num]
+        x += CharList[random.randint(0, len(CharList)-1)]
     return x
 
 
@@ -19,6 +17,6 @@ def passStrength(x):
     return Strength
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     password()
     passStrength(password())
