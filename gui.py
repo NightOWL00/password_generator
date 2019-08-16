@@ -43,5 +43,4 @@ exit_button = t.Button(window, text='EXIT', bg='black',
                        fg='white', command=window.destroy)
 exit_button.grid(column=0, row=10, padx=(10, 10), pady=(5, 5))
 
-
 window.mainloop()

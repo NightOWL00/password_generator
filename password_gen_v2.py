@@ -17,17 +17,14 @@ def passStrength(store_firstPassword):
     return Strength
 
 
-store_firstPassword = genPassword()
-
-
-for i in range(10):
+def password():
     x = genPassword()
-    t = (x, passStrength(x))
+    while float((passStrength(x))[0]) < 0.8:
+        x = genPassword()
+    return x
 
 
-print(store_firstPassword, passStrength(store_firstPassword))
-
-
-# if float((passStrength(store_firstPassword))[0]) < 0.8:
-#     new_Password = genPassword()
-#     print(new_Password, passStrength(new_Password))
+if __name__ == '__main__':
+    genPassword()
+    passStrength(genPassword)
+    password()
