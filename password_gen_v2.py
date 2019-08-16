@@ -3,20 +3,31 @@ import random
 import string
 
 
-def password():
+def genPassword():
     CharList = '@'+'_'+'-'+'+'+' '+'.'+'?'+'$' + \
         '`' + string.ascii_letters+string.digits
-    temp, x = [], ''
+    firstPassword = ''
     for i in range(16):
-        x += CharList[random.randint(0, len(CharList)-1)]
-    return x
+        firstPassword += CharList[random.randint(0, len(CharList)-1)]
+    return firstPassword
 
 
-def passStrength(x):
-    Strength = passwordmeter.test(x)
+def passStrength(store_firstPassword):
+    Strength = passwordmeter.test(store_firstPassword)
     return Strength
 
 
-if __name__ == '__main__':
-    password()
-    passStrength(password())
+store_firstPassword = genPassword()
+
+
+for i in range(10):
+    x = genPassword()
+    t = (x, passStrength(x))
+
+
+print(store_firstPassword, passStrength(store_firstPassword))
+
+
+# if float((passStrength(store_firstPassword))[0]) < 0.8:
+#     new_Password = genPassword()
+#     print(new_Password, passStrength(new_Password))
