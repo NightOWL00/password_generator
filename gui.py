@@ -10,6 +10,9 @@ def clicked_gen():
     lb2.grid(column=0, row=2, padx=(10, 10), pady=(5, 5))
     copyButton = t.Button(window, text='Copy', command=copyButtonClicked)
     copyButton.grid(column=0, row=8, padx=(10, 10), pady=(5, 5))
+    # Show Strength Button
+    showStrengthButton = t.Button(window, text='Show Strength', bg="springgreen2", fg="black", command=clicked_showStrength)
+    showStrengthButton.grid(column=0, row=6, padx=(10, 10), pady=(5, 5))
 
 
 def clicked_showStrength():
@@ -37,10 +40,6 @@ GenerateButton = t.Button(window, text='Generate', bg="springgreen2",
                         fg="black", command=clicked_gen)
 GenerateButton.grid(column=0, row=1, padx=(10, 10), pady=(5, 5))
 
-# Show Strength Button
-showStrengthButton = t.Button(window, text='Show Strength', bg="springgreen2",
-                            fg="black", command=clicked_showStrength)
-showStrengthButton.grid(column=0, row=6, padx=(10, 10), pady=(5, 5))
 
 # Exit Button
 exit_button = t.Button(window, text='EXIT', bg='black',
