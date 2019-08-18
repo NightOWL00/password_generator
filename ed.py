@@ -21,20 +21,7 @@ def decrypt(a):
                 l1.append(a1[j])
                 break
     return l1
-if __name__=='__main__':
-    encrypt()
-    decrypt()
 
-
-
-
-
-
-
-
-
-##n = input()
-##l1 = '&'.join(encrypt(n))
-##print("ENCRYPED : ",l1)
-##l2 = ''.join(decrypt(l1.split('&')))
-##print("DECRYPED : ",l2)
+l='kabjobfoib39niq3 tw39hgibiwo'
+print(encrypt(l))
+print(decrypt(l))

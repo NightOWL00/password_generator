@@ -21,6 +21,12 @@ def clicked_gen():
     passwordStrength.grid(column=0, row=3, padx=(10, 30),
                           pady=(5, 5), sticky='E')
 
+    # save
+    saveButton = t.Button(window, text='Save Password',
+                          bg="springgreen2", fg="black")
+    saveButton.grid(column=0, row=5, padx=(10, 0), pady=(
+        5, 5), ipadx=(5), ipady=(2), sticky='W')
+
 
 def copyButtonClicked():
     pc.copy(password)
@@ -42,14 +48,8 @@ GenerateButton = t.Button(window, text='Generate', bg="springgreen2",
 GenerateButton.grid(column=0, row=1, padx=(10, 0), pady=(
     5, 5), ipadx=(5), ipady=(2), sticky='W')
 
-# save
-saveButton = t.Button(window, text='Save Password',
-                      bg="springgreen2", fg="black")
-saveButton.grid(column=0, row=5, padx=(10, 0), pady=(
-    5, 5), ipadx=(5), ipady=(2), sticky='W')
-
 # view passwords
-viewButton = t.Button(window, text='View Password',
+viewButton = t.Button(window, text='View saved passwords',
                       bg="springgreen2", fg="black")
 viewButton.grid(column=0, row=5, padx=(10, 0), pady=(
     5, 5), ipadx=(5), ipady=(2), sticky='E')
@@ -59,5 +59,6 @@ exit_button = t.Button(window, text='EXIT', bg='black',
                        fg='white', command=window.destroy)
 exit_button.grid(column=0, row=4, padx=(10, 10),
                  pady=(20, 10), ipadx=(5), ipady=(2), sticky='E')
+
 
 window.mainloop()
