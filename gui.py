@@ -1,8 +1,20 @@
+import os
 import tkinter as t
 import password_gen_v2 as pg
 import pyperclip as pc
 
 password = pg.password()
+
+
+def saveFunction():
+    passfile = open('passwords.txt','+a')
+    passfile.seek(0,0)
+    
+
+
+
+
+    passfile.close()
 
 
 def clicked_gen():
@@ -15,6 +27,7 @@ def clicked_gen():
                           fg="black",)
     copyButton.grid(column=0, row=4, padx=(10, 10), pady=(
         20, 10), ipadx=(5), ipady=(2), sticky='W')
+
     # Password Strength
     passwordStrength = t.Label(window, text='Password Strength (Between 0 and 1) is '+str(pg.passStrength(password))[:7]+')', bg="springgreen2",
                                fg="black")
@@ -23,7 +36,7 @@ def clicked_gen():
 
     # save
     saveButton = t.Button(window, text='Save Password',
-                          bg="springgreen2", fg="black")
+                          bg="springgreen2", fg="black", command=saveFunction)
     saveButton.grid(column=0, row=5, padx=(10, 0), pady=(
         5, 5), ipadx=(5), ipady=(2), sticky='W')
 
