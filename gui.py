@@ -7,13 +7,8 @@ password = pg.password()
 
 
 def saveFunction():
-    passfile = open('passwords.txt','+a')
-    passfile.seek(0,0)
-    
-
-
-
-
+    passfile = open('passwords.txt', '+a')
+    passfile.write('The password is for ' + txt.get() + ': ' + password)
     passfile.close()
 
 
@@ -73,5 +68,7 @@ exit_button = t.Button(window, text='EXIT', bg='black',
 exit_button.grid(column=0, row=4, padx=(10, 10),
                  pady=(20, 10), ipadx=(5), ipady=(2), sticky='E')
 
+txt = t.Entry(window, width=10)
+txt.grid(column=0, row=9)
 
 window.mainloop()
