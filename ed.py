@@ -9,7 +9,7 @@ def encrypt(n):
                 l1.append(b[j])
                 break
     l2 = '&'.join(l1)
-    print("ENCRYPTED : ",l2)
+    #print("ENCRYPTED : ",l2)
     return l2
 
 def decrypt(a):
@@ -23,9 +23,9 @@ def decrypt(a):
             if a[i]==b1[j]:
                 l1.append(a1[j])
                 break
-    print("DECRYPTED : ",''.join(l1))
+    #print("DECRYPTED : ",''.join(l1))
     return l1
 
 if __name__ == "__main__" :
-    l1 = encrypt()
-    l2 = decrypt()
+    l1 = encrypt("WO.URyF95w yezqR")
+    l2 = decrypt(l1)
