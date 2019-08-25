@@ -50,7 +50,7 @@ titleLabel = t.Label(window, text="Click Generate to get a password",
                      font=("Comic Sans", 15))
 titleLabel.grid(column=0, row=0, padx=(45, 45), pady=(5, 5))
 
-# gen button
+# generate button
 GenerateButton = t.Button(window, text='Generate', bg="springgreen2",
                           fg="black", command=clicked_gen)
 GenerateButton.grid(column=0, row=1, padx=(10, 0), pady=(
