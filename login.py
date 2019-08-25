@@ -39,13 +39,20 @@ passwordLabel.grid(column=0, row=2, padx=(5, 5), pady=(5, 5), sticky='W')
 passwordEntry = Entry(loginWindow, width=20, show='#')
 passwordEntry.grid(column=0, row=2, padx=(5, 5), pady=(5, 5), sticky='E')
 
+# Email
+emailLabel = Label(loginWindow, text="Email :", font=("Helvetica", 10))
+emailLabel.grid(column=0, row=3, padx=(5, 5), pady=(5, 5), sticky='W')
+
+emailEntry = Entry(loginWindow, width=20)
+emailEntry.grid(column=0, row=3, padx=(5, 5), pady=(5, 5), sticky='E')
+
 # loginButton
 loginButton = Button(loginWindow, text=' Login ')
-loginButton.grid(column=0, row=3, sticky='E', padx=(5, 10), pady=(5, 5))
+loginButton.grid(column=0, row=4, sticky='E', padx=(5, 10), pady=(5, 5))
 
 # Signup Button
 signupButton = Button(loginWindow, text=' Signup ')
-signupButton.grid(column=0, row=3, padx=(45, 5), pady=(5, 5))
+signupButton.grid(column=0, row=4, padx=(45, 5), pady=(5, 5))
 
 # INFO Label
 info = Label(text=' INFO?')
@@ -54,6 +61,6 @@ then first sign up and after that login to\n
 the app to create and manage\n 
 strong passwords!!!
 ''')
-info.grid(column=0, row=3, padx=(5, 5), pady=(5, 5), stick='W')
+info.grid(column=0, row=4, padx=(5, 5), pady=(5, 5), stick='W')
 
 loginWindow.mainloop()
