@@ -14,7 +14,7 @@ def saveFunction():
 
 def clicked_gen():
     # passwordStr
-    passwordStr = t.Label(window, text=str(password), font=("Comic Sans", 20))
+    passwordStr = t.Label(window, text=str(password), font=("Helvetica", 20))
     passwordStr.grid(column=0, row=1, padx=(20, 25), pady=(5, 5), sticky='E')
 
     # copy Button
@@ -47,7 +47,7 @@ window.resizable(0, 0)
 
 # Title Label
 titleLabel = t.Label(window, text="Click Generate to get a password",
-                     font=("Comic Sans", 15))
+                     font=("Helvetica", 15))
 titleLabel.grid(column=0, row=0, padx=(45, 45), pady=(5, 5))
 
 # generate button
