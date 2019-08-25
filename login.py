@@ -1,29 +1,33 @@
 from tkinter import *
 from ToolTip import *
 loginWindow = Tk()
-loginWindow.geometry('250x180')
+loginWindow.geometry('250x200')
 loginWindow.title("Login/Sign-up")
 loginWindow.iconbitmap('icon/lock.ico')
 loginWindow.resizable(0, 0)
+
+# <Functions>
+
+
+def ifexists():
+    n = func.existORnot()
+    if n == True:
+        # msg Label
+        msgLabel = Label(
+            loginWindow, text='Username already exists. Try another one.', fg='red')
+        msgLabel.grid(column=0, row=5, padx=(10, 10), pady=(5, 5), stick='W')
+
+    else:
+        n = 'Account Created!'
+        msgLabel = Label(
+            loginWindow, text=n, fg='red')
+        msgLabel.grid(column=0, row=5, padx=(10, 10), pady=(5, 5))
+
+
+# </Functions>
 textLabel = Label(loginWindow, text='---- Login to continue ----',
                   font=("Helvetica", 15))
 textLabel.grid(column=0, row=0, padx=(10, 10), pady=(5, 5))
-
-# def showinfo():
-#     infoWindow = Tk()
-#     infoWindow.geometry('250x200')
-#     infoWindow.title("Login/Sign-up")
-#     infoWindow.iconbitmap('icon/lock.ico')
-#     infoWindow.resizable(0, 0)
-#     infoLabel = Label(infoWindow, text='''this is multi line
-#     coment
-#     to check
-#     if this
-#     works
-#     ''',
-#                       font=("Helvetica", 15))
-#     infoLabel.grid(column=0, row=0, padx=(10, 10), pady=(5, 5))
-
 
 # Username
 usernameLabel = Label(loginWindow, text="Username :", font=("Helvetica", 10))
@@ -51,7 +55,7 @@ loginButton = Button(loginWindow, text=' Login ')
 loginButton.grid(column=0, row=4, sticky='E', padx=(5, 10), pady=(5, 5))
 
 # Signup Button
-signupButton = Button(loginWindow, text=' Signup ')
+signupButton = Button(loginWindow, text=' Signup ', command=ifexists)
 signupButton.grid(column=0, row=4, padx=(45, 5), pady=(5, 5))
 
 # INFO Label
@@ -62,5 +66,6 @@ the app to create and manage\n
 strong passwords!!!
 ''')
 info.grid(column=0, row=4, padx=(5, 5), pady=(5, 5), stick='W')
+
 
 loginWindow.mainloop()
