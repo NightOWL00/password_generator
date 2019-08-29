@@ -1,31 +1,32 @@
 from tkinter import *
 from ToolTip import *
+from functions import existORnot
 import signup as si
 loginWindow = Tk()
 loginWindow.geometry('250x200')
 loginWindow.title("Login/Sign-up")
-loginWindow.iconbitmap('icon/lock.ico')
+loginWindow.iconbitmap('img/lock.ico')
 loginWindow.resizable(0, 0)
 
 # <Functions>
 
+
 def functions():
-    #ifexists()
+    ifexists()
     si.sign(usernameEntry.get(), passwordEntry.get(), emailEntry.get())
 
-##def ifexists():
-##    n = func.existORnot()
-##    if n == True:
-##        # msg Label
-##        msgLabel = Label(
-##            loginWindow, text='Username already exists. Try another one.', fg='red')
-##        msgLabel.grid(column=0, row=5, padx=(10, 10), pady=(5, 5), stick='W')
-##
-##    else:
-##        n = 'Account Created!'
-##        msgLabel = Label(
-##            loginWindow, text=n, fg='red')
-##        msgLabel.grid(column=0, row=5, padx=(10, 10), pady=(5, 5))
+
+def ifexists():
+    n = existORnot(usernameEntry.get())
+    if n == True:
+        msgLabel = Label(
+            loginWindow, text='Username already exists. Try another one.', fg='red')
+        msgLabel.grid(column=0, row=5, padx=(10, 10), pady=(5, 5), stick='W')
+    else:
+        n = 'Account Created!'
+        msgLabel = Label(
+            loginWindow, text=n, fg='red')
+        msgLabel.grid(column=0, row=5, padx=(10, 10), pady=(5, 5))
 
 
 # </Functions>
@@ -59,7 +60,7 @@ loginButton = Button(loginWindow, text=' Login ')
 loginButton.grid(column=0, row=4, sticky='E', padx=(5, 10), pady=(5, 5))
 
 # Signup Button
-signupButton = Button(loginWindow, text=' Signup ', command = functions)
+signupButton = Button(loginWindow, text=' Signup ', command=functions)
 signupButton.grid(column=0, row=4, padx=(45, 5), pady=(5, 5))
 
 # INFO Label
