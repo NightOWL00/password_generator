@@ -1,7 +1,7 @@
 from tkinter import *
 from ToolTip import *
-from functions import existORnot
-import signup as si
+from functions import existORnot, signup
+
 loginWindow = Tk()
 loginWindow.geometry('250x200')
 loginWindow.title("Login/Sign-up")
@@ -13,7 +13,7 @@ loginWindow.resizable(0, 0)
 
 def functions():
     ifexists()
-    si.sign(usernameEntry.get(), passwordEntry.get(), emailEntry.get())
+    signup(usernameEntry.get(), passwordEntry.get(), emailEntry.get())
 
 
 def ifexists():
