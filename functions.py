@@ -71,4 +71,3 @@ def signup(username, password, email):
     file1.write(userkeys.pop())
     file1.write('\n')
     file1.close()
-    print(userkeys)
