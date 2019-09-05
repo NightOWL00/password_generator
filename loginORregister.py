@@ -1,7 +1,6 @@
 from tkinter import *
 from ToolTip import *
 from functions import existORnot, signup
-
 # <Functions>
 
 
@@ -30,14 +29,13 @@ def register():
         msgLabel = Label(registerWindow, text='', fg='red')
         msgLabel.grid(column=0, row=7, padx=(
             10, 10), pady=(5, 5), columnspan=2)
-        msgLabel['text'] = ' '
-        if existORnot(usernameEntry.get()) == True:
+        if existORnot(usernameEntry.get()):
             txt = 'Username already exists. Try another one.'
             msgLabel['text'] = txt
         else:
             txt = 'Account Created'
             msgLabel['text'] = txt
-
+            # exit mechanism
     registerWindow = Tk()
     registerWindow.geometry('300x270')
     registerWindow.title("Register")
