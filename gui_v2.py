@@ -3,7 +3,7 @@ from functions import *
 import pyperclip as pc
 
 window = Tk()
-window.geometry('440x200')
+window.geometry('290x130')
 window.title("Password Generator and store")
 #window.resizable(0, 0)
 
@@ -11,6 +11,7 @@ password = password()
 
 
 def genandcopy():
+    window.geometry('450x200')
     # passwordStr
     passwordStr = Label(window, text=str(password), font=("Helvetica", 20))
     passwordStr.grid(column=1, row=0, padx=(20, 25), pady=(5, 5), sticky='S')
@@ -51,12 +52,12 @@ viewButton.grid(column=0, row=3, padx=(10, 0), pady=(
     5, 5), ipadx=(5), ipady=(2))
 
 # logged in as
-lb1 = Label(window, text='LOGGED IN AS', bg='springgreen2', fg='#B332FF')
+lb1 = Label(window, text='LOGGED IN AS', fg='#B332FF')
 lb1.grid(column=0, row=4, padx=(10, 0), pady=(
     5, 5), ipadx=(5), ipady=(2), stick='S')
 
 # username
-lb2 = Label(window, text='<< USERNAME >>', bg='springgreen2', fg='#B332FF')
+lb2 = Label(window, text='<< USERNAME >>', fg='#B332FF')
 lb2.grid(column=1, row=4, padx=(10, 0), pady=(
     5, 5), ipadx=(5), ipady=(2), sticky='S')
 
