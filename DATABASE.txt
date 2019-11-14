@@ -1,6 +1,0 @@
-{'Kushagra': ('kush2628191', 'kushagra.gangwar$7812@gmail.com')}
-{'Prakhar': ('Sxanea123', 'prakhar.saxena@gmail.com')}
-{'Kush': ('kush123', 'kush@gmail.com')}
-{'Hey': ('ewae222', 'ksunshs@gmail.com')}
-{'prakhar': ('passworddd', 'prakhar.saxena@gmail.com')}
-{'Prakhar': ('', '')}
