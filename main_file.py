@@ -1,8 +1,21 @@
+import base64
 from tkinter import *
 import passwordmeter
 import random
 import string
 import pyperclip as pc
+import os
+
+
+def encrypt(plain_data):
+    plain_data = plain_data.encode()
+    encoded_data = base64.b64encode(plain_data)
+    return encoded_data
+
+
+def decrypt(encrypted_data):
+    decoded_data = base64.b64decode(encrypted_data)
+    return decoded_data
 
 
 def genPassword():
@@ -40,7 +53,7 @@ def magic():
     btn1['text'] = 'Generate another'
     lbl1['text'] = str(pwd)
     lbl1['font'] = "Helvetica 16 bold"
-    lbl1['bg'] = "seagreen"
+    lbl1['bg'] = "#C0C0C0"
     pc.copy(pwd)
     pwdStrength = passStrength(pwd)
 
@@ -49,16 +62,39 @@ def magic():
     lbl3.grid(column=0, row=3, padx=(10, 0), pady=(
         5, 5), ipadx=(5), ipady=(2), columnspan=2)
 
-    lbl2 = Label(window, text='Save password for: ',
+    lbl2 = Label(window, text='Save this password for: ',
                  bg="black", fg="springgreen2")
     lbl2.grid(column=0, row=4, padx=(10, 0), pady=(5, 5), ipadx=(5), ipady=(2))
+
+    def save_it():
+        file = 'Good_File_DO_NOT_DELETE_Contains_password.txt'
+        f = open(file, 'a')
+        data = f'Password for \'{ent1.get()}\' is \'{pwd}\' \n'
+        f.write('\n' + encrypt(data).decode() + '\n')
+        f.close()
+
+    def view_passwords():
+        file = 'Temp_file_DELETE_AFTER_USE.txt'
+        Message = 'Delete this file after use to avoid password leakage'
+        f = open(file, 'w')
+        f.write(Message+'\n')
+        with open("Good_File_DO_NOT_DELETE_Contains_password.txt") as password_file:
+            for line in password_file.readlines():
+                f.write(decrypt(line).decode() + '\n')
+        f.close()
+        os.popen('Temp_file_DELETE_AFTER_USE.txt')
 
     ent1 = Entry(window, width=20)
     ent1.grid(column=1, row=4, padx=(10, 0), pady=(5, 5), ipadx=(5), ipady=(2))
 
-    btn2 = Button(window, text='    Save    ', bg="black", fg="springgreen2")
+    btn2 = Button(window, text='    Save    ', bg="black",
+                  fg="springgreen2", command=save_it)
     btn2.grid(column=0, row=5, padx=(10, 0), pady=(
-        5, 5), ipadx=(5), ipady=(2), columnspan=2)
+        5, 5), ipadx=(5), ipady=(2))
+    btn3 = Button(window, text='    View Passwords    ', bg="black",
+                  fg="springgreen2", command=view_passwords)
+    btn3.grid(column=1, row=5, padx=(10, 0), pady=(
+        5, 5), ipadx=(5), ipady=(2))
 
 
 btn1 = Button(window, text='Generate and copy',

@@ -1,0 +1,22 @@
+Delete this file after use to avoid password leakage
+
+Password for 'mazak' is 'FqO+PB057EjY2M9w' 
+
+
+Password for 'nice password' is 'JTTWSV8Hca5E$R@j' 
+
+
+Password for 'helloWTF' is 'z1mMFsl ?mVD+RtE' 
+
+
+Password for '         ' is 'jsHTmS8Ub9m`bbg0' 
+
+
+Password for 'snoop_dogg' is 'N9FV8$4U4pDOvg-x' 
+
+
+Password for 'hihihihihihi' is '0.kB4$I@.q wxEY1' 
+
+
+Password for 'dynamic text' is '0.kB4$I@.q wxEY1' 
+
