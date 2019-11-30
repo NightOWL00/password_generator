@@ -107,3 +107,9 @@ lbl1.grid(column=0, row=1, padx=(10, 0), pady=(
     5, 5), ipadx=(5), ipady=(2), columnspan=2)
 
 window.mainloop()
+
+# On exit delete decrypted file
+if os.path.exists("Temp_file_DELETE_AFTER_USE.txt"):
+    os.remove("Temp_file_DELETE_AFTER_USE.txt")
+else:
+    sys.exit
