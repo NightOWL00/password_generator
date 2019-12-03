@@ -5,6 +5,13 @@ import random
 import string
 import pyperclip as pc
 import os
+os.mkdir('DATA_FILES')
+os.system("attrib +h DATA_FILES")
+if os.path.exists('DATA_FILES/data_pgs.dtap'):
+    os.rename('DATA_FILES/data_pgs.dtap',
+              'DATA_FILES/Good_File_DO_NOT_DELETE_Contains_password.txt')
+else:
+    print('file_not_found'.upper())
 
 
 def encrypt(plain_data):
@@ -67,22 +74,22 @@ def magic():
     lbl2.grid(column=0, row=4, padx=(10, 0), pady=(5, 5), ipadx=(5), ipady=(2))
 
     def save_it():
-        file = 'Good_File_DO_NOT_DELETE_Contains_password.txt'
+        file = 'DATA_FILES/Good_File_DO_NOT_DELETE_Contains_password.txt'
         f = open(file, 'a')
         data = f'Password for \'{ent1.get()}\' is \'{pwd}\' \n'
         f.write('\n' + encrypt(data).decode() + '\n')
         f.close()
 
     def view_passwords():
-        file = 'Temp_file_DELETE_AFTER_USE.txt'
+        file = 'DATA_FILES\Temp_file_DELETE_AFTER_USE.txt'  # windows file system
         Message = 'Delete this file after use to avoid password leakage'
         f = open(file, 'w')
         f.write(Message+'\n')
-        with open("Good_File_DO_NOT_DELETE_Contains_password.txt") as password_file:
+        with open("DATA_FILES/Good_File_DO_NOT_DELETE_Contains_password.txt") as password_file:
             for line in password_file.readlines():
                 f.write(decrypt(line).decode() + '\n')
         f.close()
-        os.popen('Temp_file_DELETE_AFTER_USE.txt')
+        os.popen(file)
 
     ent1 = Entry(window, width=20)
     ent1.grid(column=1, row=4, padx=(10, 0), pady=(5, 5), ipadx=(5), ipady=(2))
@@ -109,7 +116,9 @@ lbl1.grid(column=0, row=1, padx=(10, 0), pady=(
 window.mainloop()
 
 # On exit delete decrypted file
-if os.path.exists("Temp_file_DELETE_AFTER_USE.txt"):
-    os.remove("Temp_file_DELETE_AFTER_USE.txt")
+if os.path.exists("DATA_FILES/Temp_file_DELETE_AFTER_USE.txt"):
+    os.remove("DATA_FILES/Temp_file_DELETE_AFTER_USE.txt")
 else:
     sys.exit
+os.rename('DATA_FILES/Good_File_DO_NOT_DELETE_Contains_password.txt',
+          'DATA_FILES/data_pgs.dtap')
