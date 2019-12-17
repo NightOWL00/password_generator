@@ -1,5 +1,6 @@
 import base64
 from tkinter import *
+from tkinter import messagebox
 import passwordmeter
 import random
 import string
@@ -10,11 +11,15 @@ if os.path.exists('DATA_FILES'):
 else:
     os.mkdir('DATA_FILES')
 os.system("attrib +h DATA_FILES")
-if os.path.exists('DATA_FILES/data_pgs.dtap'):
-    os.rename('DATA_FILES/data_pgs.dtap',
+if os.path.exists('DATA_FILES/data_pgs.RpvF1fCRYoeqh'):
+    os.rename('DATA_FILES/data_pgs.RpvF1fCRYoeqh',
               'DATA_FILES/Good_File_DO_NOT_DELETE_Contains_password.txt')
 else:
     print('file_not_found'.upper())
+
+
+def give_error_message():
+    messagebox.showerror("Error", 'This "save for" cannot be empty')
 
 
 def encrypt(plain_data):
@@ -63,7 +68,7 @@ def view_passwords():
 
 window = Tk()
 window.title('Password generator')
-
+window.iconbitmap('img/lock.ico')
 window.geometry('300x100')
 window.resizable(0, 0)
 
@@ -89,11 +94,14 @@ def magic():
     lbl2.grid(column=0, row=4, padx=(10, 0), pady=(5, 5), ipadx=(5), ipady=(2))
 
     def save_it():
-        file = 'DATA_FILES/Good_File_DO_NOT_DELETE_Contains_password.txt'
-        f = open(file, 'a')
-        data = f'Password for \'{ent1.get()}\' is \'{pwd}\' \n'
-        f.write('\n' + encrypt(data).decode() + '\n')
-        f.close()
+        if len(ent1.get()) == 0:
+            give_error_message()
+        else:
+            file = 'DATA_FILES/Good_File_DO_NOT_DELETE_Contains_password.txt'
+            f = open(file, 'a')
+            data = f'Password for \'{ent1.get()}\' is \'{pwd}\' \n'
+            f.write('\n' + encrypt(data).decode() + '\n')
+            f.close()
 
     ent1 = Entry(window, width=20)
     ent1.grid(column=1, row=4, padx=(10, 0), pady=(5, 5), ipadx=(5), ipady=(2))
@@ -108,7 +116,7 @@ def magic():
         5, 5), ipadx=(5), ipady=(2), columnspan=2)
 
 
-btn1 = Button(window, text='Generate and copy',
+btn1 = Button(window, text='    Generate    ',
               bg="black", fg="springgreen2", command=magic)
 btn1.grid(column=0, row=0, padx=(10, 0), pady=(
     5, 5), ipadx=(5), ipady=(2), columnspan=1)
@@ -129,4 +137,4 @@ if os.path.exists("DATA_FILES/Temp_file_DELETE_AFTER_USE.txt"):
 else:
     sys.exit
 os.rename('DATA_FILES/Good_File_DO_NOT_DELETE_Contains_password.txt',
-          'DATA_FILES/data_pgs.dtap')
+          'DATA_FILES/data_pgs.RpvF1fCRYoeqh')
